@@ -1,0 +1,53 @@
+.registerPage{
+  border:2px solid black;
+  padding:0.75rem;
+  margin:2rem;
+  min-height: 90vh;
+ 
+
+}
+.registerContainer{
+  display: flex;
+  background-color: #f8f1ee;
+  padding: 0.75rem;
+  border: 2px solid black;
+  border-radius: 16px;
+  min-height: 90vh;
+  width:70%;
+ justify-self: center;
+ align-self: center;
+
+}
+.registerForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ justify-self: center;
+ align-self: center;
+  gap: 1rem;
+  padding:0.75rem;
+  
+  border:2px solid #f08c00;
+  border-radius: 16px;
+  width:50%;
+
+}
+.registerButton{
+  background-color:#f08c00;
+  cursor:pointer;
+}
+.registerButton:hover{
+   background-color: antiquewhite;
+}
+.uploadButton{
+  background-color:#ffc9c9;
+
+}
+.uploadButton:hover{
+  background-color: #f1dfdf;
+
+}
+.errorMsg{
+  color:red;
+
+}
