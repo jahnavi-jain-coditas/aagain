@@ -7,8 +7,8 @@ const App =()=>{
   
   return(
     <> 
-    <Register/>
-    <HomePage></HomePage>
+    {/* <Register/> */}
+    {/* <HomePage></HomePage> */}
     {/* <Login /> */}
     </>
   )

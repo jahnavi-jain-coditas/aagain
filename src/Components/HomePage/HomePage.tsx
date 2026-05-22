@@ -12,7 +12,7 @@ const HomePage =()=>{
           
         </section>
         <div>
-          <img src="Images/genetics.jpg" />
+          <img className={styles.geneticsimage} src="Images/genetics.jpg" />
         </div>
         
       </main>

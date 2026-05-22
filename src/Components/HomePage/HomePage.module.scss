@@ -1,8 +1,8 @@
 .homePage{
-  border:2px solid black;
-  padding:0.75rem;
-  margin:2rem;
-  min-height: 90vh;
+  // border:2px solid black;
+  // padding:0.75rem;
+  // margin:2rem;
+  min-height: 30vh;
   
 
 }
@@ -10,22 +10,35 @@
   display: grid;
   grid-template-columns: 2fr 8fr;
   padding:0.75rem;
-  margin:2rem;
+   box-shadow: 0px 0px 8px 2px #e6e6e6;
+   width:100%;
+   padding:1rem;
+  //  min-height: 85vh;
+  // margin:2rem;
   gap:4rem
 }
 
 .leftSection{
   display: flex;
   flex-direction: column;
-  border:2px solid black;
+  box-shadow: 0px 0px 8px 2px #e6e6e6;
+  position:relative;
+  left:5%;
+  // border:2px solid black;
 }
 
+.geneticsimage{
+  // position:relative;
+  // left:6%;
+  min-height:40vh;
+  // width:90%;
+}
 .paragraph1{
-  color:#9775fa;
+  font-weight: bold;
   font-size: 4em;
 }
 
 .paragraph2{
-  color:#f08c00;
+  color:rgb(79, 79, 79);
   font-size: 2em;
 }
