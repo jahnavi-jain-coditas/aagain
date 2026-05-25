@@ -10,13 +10,15 @@ const Register = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors }
   } = useForm<RegisterProps>();
 
-  const password = watch("user_password");
+  // const password = watch("user_password");
 
   const onSubmit = async (data: RegisterProps) => {
+    if(data.user_password !== data.user_confirm_password){
+      throw new Error("Your confirm password and password does not match ")
+    }
 
     try {
       const response = await registerUser(
@@ -34,6 +36,7 @@ const Register = () => {
       
     }
     catch (error: any) {
+    
       console.log(error);
 
     }
@@ -146,7 +149,7 @@ const Register = () => {
 
                 },
                 required: "rewriting the same password is required",
-                validate: (value) => value === password || "It should be same as the one you types in the password field"
+                // validate: (value) => value === password || "It should be same as the one you types in the password field"
 
               })} required />
 
@@ -157,12 +160,6 @@ const Register = () => {
 
             {errors.user_confirm_password && (
               <p className={styles.errorMsg}>{errors.user_confirm_password.message}</p>)}
-
-
-
-
-
-
 
             <div>
               
@@ -192,7 +189,9 @@ const Register = () => {
 
               </div>
             </div>
+            
             <Button className={styles.registerButton} type="submit" >Register</Button>
+           
 
 
             <div>

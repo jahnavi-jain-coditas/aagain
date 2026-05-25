@@ -6,13 +6,15 @@ import Register from "../Components/Register/Register";
 import Contact from "../Components/Contact/Contact";
 import AdminDashboard from "../Components/AdminDashboard/AdminDashboard";
 import UserDashboard from "../Components/UserDashboard/UserDasboard";
-import ScheduleExams from "../Components/ScheduleExams/ScheduleExams";
+import ScheduleExams from "../Components/ManageExamsPage/ManageExamsPage";
+import ManageUser from "../Components/ManageUser/ManageUser";
+import ManageExamsPage from "../Components/ManageExamsPage/ManageExamsPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage/>
-    // element:<AdminDashboard/>
+    
   },
   {
     path: "/About",
@@ -41,9 +43,13 @@ const router = createBrowserRouter([
     element:<UserDashboard/>
   },
   {
-    path:"/ScheduleExam",
-    element:<ScheduleExams/>
+    path:"/ManageExam",
+    element:<ManageExamsPage/>
 
+  },
+  {
+    path:"/ManageUser",
+    element:<ManageUser/>
   }
 ]);
 export default router;

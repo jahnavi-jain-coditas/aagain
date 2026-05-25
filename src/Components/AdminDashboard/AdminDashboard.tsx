@@ -12,13 +12,16 @@ const AdminDashboard = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    // watch,
     formState: { errors }
   } = useForm<adminCredentials>();
 
-  const password = watch("admin_password");
+  // const password = watch("admin_password");
 
   const onSubmit = async (data: adminCredentials) => {
+    if(data.admin_password!==data.admin_confirm_password){
+      throw new Error("You hva eto have confirm password same as password")
+    }
     
 
     try {
@@ -99,6 +102,7 @@ const AdminDashboard = () => {
                 <div>
                   <label htmlFor="adminTitle">Title:</label>
                   <select id="adminTitle" {...register("admin_title")} required>
+                    <option value="" disabled > -- select an option -- </option>
                     <option value="Mr">Mr</option>
                     <option value="Mrs">Mrs</option>
                     <option value="Ms">Ms</option>
@@ -168,7 +172,7 @@ const AdminDashboard = () => {
 
                     },
                     required: "rewriting the same password is required",
-                    validate: (value) => value === password || "It should be same as the one you types in the password field"
+                    // validate: (value) => value === password || "It should be same as the one you types in the password field"
 
                   })} required />
                 </div>
