@@ -185,7 +185,9 @@ const Register = () => {
             <div>
               
               <div>
-                <input type="text" placeholder="Certificate Available?" id="userCertificate" {...register("user_certificate")} required />
+                <label htmlFor="userCertificate">Certificate:</label>
+                <input type="file" placeholder="Certificate Available?" id="userCertificate" {...register("user_certificate")} required />
+                
 
               </div>
             </div>

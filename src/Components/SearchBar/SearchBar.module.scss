@@ -1,0 +1,22 @@
+*{
+  box-sizing: border-box;
+}
+
+.searchConatiner {
+  // margin: 0.2rem;
+}
+
+.formInput {
+  padding: 0.5rem;
+  border:thin solid black;
+}
+
+.searchButton {
+  margin: 0;
+  float: left;
+  padding: 0.46rem;
+  border-radius: 0;
+  border:thin solid black;
+  cursor: pointer;
+  text-align: center;
+}
