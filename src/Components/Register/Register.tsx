@@ -19,6 +19,7 @@ const Register = () => {
     if(data.user_password !== data.user_confirm_password){
       throw new Error("Your confirm password and password does not match ")
     }
+    const certificateFile= data.user_certificate[0];
 
     try {
       const response = await registerUser(
@@ -29,7 +30,7 @@ const Register = () => {
         data.user_password,
         data.user_confirm_password,
         data.user_degree,
-        data.user_certificate,
+        certificateFile,
         data.user_passing_year,
       )
       console.log(response);
@@ -186,11 +187,14 @@ const Register = () => {
               
               <div>
                 <label htmlFor="userCertificate">Certificate:</label>
-                <input type="file" placeholder="Certificate Available?" id="userCertificate" {...register("user_certificate")} required />
+                <input type="file" placeholder="Certificate Available?" id="userCertificate"  {...register("user_certificate")} required />
                 
 
               </div>
             </div>
+             {errors.user_certificate && (
+              <p className={styles.errorMsg}>{errors.user_certificate.message}</p>)}
+
             
             <Button className={styles.registerButton} type="submit" >Register</Button>
            

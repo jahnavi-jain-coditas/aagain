@@ -29,9 +29,11 @@ export default function Login() {
       console.log(response)
 
       const { access_token } = response;
-      const { user_role } = response
+      const { user_role } = response;
+      const {refresh_token} = response; // refresh token handling
       localStorage.setItem('token', access_token);
       localStorage.setItem('role',user_role);
+      localStorage.setItem('refreshToken',refresh_token)
 
 
       if (response.user_role === "USER") {

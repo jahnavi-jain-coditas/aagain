@@ -2,13 +2,14 @@
 import Button from "../Button/Button";
 import styles from "./SearchBar.module.scss";
 import { RiSearchLine } from 'react-icons/ri';
-const SearchTab =()=>{
+import type { searchBarProps } from "./SearchBar.types";
+const SearchTab =({value,onSearch}:searchBarProps)=>{
 
   return(
     <div className={styles.searchContainer}>
       <form className={styles.searchInput}>
         <input type="search" name="" id="searchTab" placeholder="Search users....." className={styles.formInput} />
-        <Button type="submit" className={styles.searchButton}> <RiSearchLine className="search-icon" /></Button>
+        <Button type="submit" className={styles.searchButton} value={value} onClick={(e)=>onSearch}> <RiSearchLine className="search-icon" /></Button>
         
       </form>
     </div>

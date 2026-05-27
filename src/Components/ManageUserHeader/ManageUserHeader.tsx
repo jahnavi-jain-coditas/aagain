@@ -7,7 +7,7 @@ const ManageUserHeader =()=>{
       <div className={styles.heading}>
         <h3>Manage Users</h3>
       </div>
-      <Button className={styles.AddUserButton}>Add User</Button>
+      {/* <Button className={styles.AddUserButton}>Add User</Button> */}
 
     </header>
   )

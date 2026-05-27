@@ -6,7 +6,7 @@ export interface RegisterProps {
   user_password: string,
   user_confirm_password: string
   user_degree: string,
-  user_certificate: File,
+  user_certificate:FileList;
   user_passing_year: number,
 }
 

@@ -25,12 +25,12 @@ export const registerUser = async (
   
 
 
-  const response = await api.post("/auth/register", formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          }
-        }
+  const response = await api.post("/auth/register", formData
+        // {
+        //   headers: {
+        //     "Content-Type": "multipart/form-data",
+        //   }
+        // }
     
 
   );
