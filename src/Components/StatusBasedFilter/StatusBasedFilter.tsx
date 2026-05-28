@@ -5,9 +5,9 @@ const StatusBasedFilter=({value,onChange}:statusBasedFilterProps)=>{
     <div className={styles.dropDownContainer}>
       <select className={styles.dropDownField} value={value} onChange={(e)=>onChange(e.target.value)}>
         <option value="" disabled > -- select an option -- </option>
-        <option value="">All</option>
-        <option value="">Active</option>
-        <option value="">In-Active</option> 
+        <option value="All">All</option>
+        <option value="Active">Active</option>
+        <option value="In-Active">In-Active</option> 
       </select>
     </div>
 

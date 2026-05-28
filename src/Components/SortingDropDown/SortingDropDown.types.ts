@@ -1,4 +1,4 @@
 export interface sortingProps{
   value:string,
-  onChange:(status:string)=>void
+  onChange:(sort:string)=>void
 }

@@ -18,7 +18,7 @@ const initialState: ManageUserState = {
   searched_name: "",
   role_selected: "All",
   status_selected: "All",
-  sort_order: "Ascending",
+  sort_order: "",
   filter_selected: false
 };
 
@@ -28,18 +28,18 @@ function reducer(state: ManageUserState, action: ManageUserAction): ManageUserSt
       return { ...state, fetchedData: action.data_received };
     case "on_option_selection":
       return { ...state, fetchedData: action.data_received }
-    case "on-select_sortOrder":
-      return { ...state, sort_order: action.current_sortOrder, filter_selected: true };
+    case "on_select_sortOrder":
+      return { ...state, sort_order: action.current_sortOrder, filter_selected: true,pageNumber: 1 };
     case "on_click_next":
       return { ...state, pageNumber: action.page_current };
     case "on_click_prev":
       return { ...state, pageNumber: action.page_current };
     case "on_click_searchButton":
-      return { ...state, searched_name: action.current_search, filter_selected: true };
+      return { ...state, searched_name: action.current_search, filter_selected: true ,pageNumber: 1};
     case "on_select_roleFilter":
-      return { ...state, role_selected: action.current_role, filter_selected: true };
+      return { ...state, role_selected: action.current_role, filter_selected: true,pageNumber: 1 };
     case "on_select_statusFilter":
-      return { ...state, status_selected: action.current_status, filter_selected: true }
+      return { ...state, status_selected: action.current_status, filter_selected: true,pageNumber: 1 }
     default:
       throw Error("Unknown action received");
   }
@@ -54,7 +54,6 @@ const ManageUser = () => {
   const fetchDetailsOnNavigation = async (page: number) => {
     try {
       const response = await fetchUserDetailsOnNavigate(page);
-      // setFetchedData(response);
       dispatch({ type: "navigate_to_manage_user", data_received: response })
       console.log(response)
     }
@@ -111,7 +110,7 @@ const ManageUser = () => {
         <SortingDropDown
           value={state.sort_order}
           onChange={() =>
-            dispatch({ type: "on-select_sortOrder", current_sortOrder: state.sort_order })} />
+            dispatch({ type: "on_select_sortOrder", current_sortOrder: state.sort_order })} />
 
 
       </div>

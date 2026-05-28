@@ -7,12 +7,12 @@ const RoleBasedFilter = ({value,onChange}:roleBasedFilterProps) => {
     <div className={styles.dropDownContainer}>
       <select className={styles.dropDownField} value={value} onChange={(e)=>onChange(e.target.value)}>
         <option value="" disabled > -- select an option -- </option>
-         <option value="">All</option>
-        <option value="">Admin</option>
-        <option value="">Candidate</option>
-        <option value="">Diplomate</option>
-        <option value="">Candidate and Admin</option>
-        <option value="">Diplomate and Admin</option>   
+         <option value="All">All</option>
+        <option value="Admin">Admin</option>
+        <option value="Candidate">Candidate</option>
+        <option value="Diplomate">Diplomate</option>
+        <option value="Candidate_and-Admin">Candidate and Admin</option>
+        <option value="Diplomate_and_Admin">Diplomate and Admin</option>   
       </select>
     </div>
 

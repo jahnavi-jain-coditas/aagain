@@ -23,6 +23,6 @@ export type ManageUserAction = |
 { type: "on_click_searchButton",current_search:string}|
 { type: "on_select_roleFilter",current_role:string}|
 { type: "on_select_statusFilter",current_status:string}|
-{ type: "on-select_sortOrder",current_sortOrder:string}|
+{ type: "on_select_sortOrder",current_sortOrder:string}|
 { type: "on_click_prev", page_current: number }|
 { type: "on_click_next",page_current: number }

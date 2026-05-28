@@ -7,8 +7,8 @@ const SortingDropDown = ({value,onChange}:sortingProps) => {
     <div className={styles.dropDownContainer}>
       <select className={styles.dropDownField} value={value} onChange={(e)=>onChange(e.target.value)}>
         <option value="" disabled > -- select an option -- </option>
-        <option value="">Ascending Order</option>
-        <option value="">Descending Order</option>
+        <option value="Ascending_Order">Ascending Order</option>
+        <option value="Descending_Order">Descending Order</option>
           
       </select>
     </div>

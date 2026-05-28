@@ -9,6 +9,9 @@ import UserDashboard from "../Components/UserDashboard/UserDasboard";
 import ScheduleExams from "../Components/ManageExamsPage/ManageExamsPage";
 import ManageUser from "../Components/ManageUser/ManageUser";
 import ManageExamsPage from "../Components/ManageExamsPage/ManageExamsPage";
+import TakeExamination from "../Components/TakeExamination/TakeExamination";
+import ViewProfile from "../Components/ViewProfile/ViewProfile";
+import ViewCertification from "../Components/ViewCertification/ViewCertification";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +53,18 @@ const router = createBrowserRouter([
   {
     path:"/ManageUser",
     element:<ManageUser/>
+  },
+  {
+    path:"/TakeExamination",
+    element:<TakeExamination/>
+  },
+  {
+    path:"/ViewProfile",
+    element:<ViewProfile/>
+  },
+  {
+    path:"/ViewCertification",
+    element:<ViewCertification/>
   }
 ]);
 export default router;

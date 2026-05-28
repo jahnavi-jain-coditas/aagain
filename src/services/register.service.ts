@@ -11,6 +11,7 @@ export const registerUser = async (
   user_certificate: File,
   user_passing_year: number,
 ) => {
+  
   const formData = new FormData();
   formData.append("user_title", user_title);
   formData.append("user_first_name", user_first_name);
