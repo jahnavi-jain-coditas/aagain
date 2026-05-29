@@ -9,7 +9,7 @@ export const addSlot = async (
   
 ) => {
 
-  const response = await api.post("/examination/create_examination", {
+  const response = await api.post("/admin_examination/create_examination", {
     examination_type:slot_type,
     examination_date:slot_date,
     examination_slot_start_time:slot_start_time,

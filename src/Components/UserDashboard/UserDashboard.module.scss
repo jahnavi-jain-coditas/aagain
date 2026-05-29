@@ -50,6 +50,7 @@
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
+  padding:0.5rem;
 
 
 }
@@ -96,6 +97,11 @@
 }
 
 .ExamDetails {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:0.5rem;
   font-style: normal;
   font-size: 1.2em;
 
@@ -109,6 +115,14 @@
 }
 
 .progressButton {}
+
+.errorMsg{
+  color:red;
+
+}
+.successMsg{
+  color:green;
+}
 
 // .detailContainer{
 //   display: grid;

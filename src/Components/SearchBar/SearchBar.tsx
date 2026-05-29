@@ -8,8 +8,8 @@ const SearchTab =({value,onSearch}:searchBarProps)=>{
   return(
     <div className={styles.searchContainer}>
       <form className={styles.searchInput}>
-        <input type="search" name="" id="searchTab" placeholder="Search users....." className={styles.formInput} />
-        <Button type="submit" className={styles.searchButton} value={value} onClick={(e)=>onSearch}> <RiSearchLine className="search-icon" /></Button>
+        <input type="search" value={value} onClick={(e)=>onSearch(e.target.value)}name="" id="searchTab" placeholder="Search users....." className={styles.formInput} />
+        {/* <Button type="submit" className={styles.searchButton} value={value} onClick={(e)=>onSearch}> <RiSearchLine className="search-icon" /></Button> */}
         
       </form>
     </div>

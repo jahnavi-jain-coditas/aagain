@@ -8,7 +8,7 @@ import Button from "../Button/Button";
 import Table from "../Table/Table";
 import type { fetchedUserCredentials, ManageUserAction, ManageUserState } from "./ManageUser.types";
 import { useEffect, useReducer } from "react";
-import { fetchUserDetailsOnEvent, fetchUserDetailsOnNavigate } from "../../services/fetchUserFilterBased.service";
+import {  fetchUserDetailsOnNavigate } from "../../services/fetchUserFilterBased.service";
 
 
 
@@ -18,28 +18,25 @@ const initialState: ManageUserState = {
   searched_name: "",
   role_selected: "All",
   status_selected: "All",
-  sort_order: "",
-  filter_selected: false
+  sort_order: ""
 };
 
 function reducer(state: ManageUserState, action: ManageUserAction): ManageUserState {
   switch (action.type) {
     case "navigate_to_manage_user":
       return { ...state, fetchedData: action.data_received };
-    case "on_option_selection":
-      return { ...state, fetchedData: action.data_received }
     case "on_select_sortOrder":
-      return { ...state, sort_order: action.current_sortOrder, filter_selected: true,pageNumber: 1 };
+      return { ...state, sort_order: action.current_sortOrder, pageNumber: 1 };
     case "on_click_next":
       return { ...state, pageNumber: action.page_current };
     case "on_click_prev":
       return { ...state, pageNumber: action.page_current };
     case "on_click_searchButton":
-      return { ...state, searched_name: action.current_search, filter_selected: true ,pageNumber: 1};
+      return { ...state, searched_name: action.current_search, pageNumber: 1};
     case "on_select_roleFilter":
-      return { ...state, role_selected: action.current_role, filter_selected: true,pageNumber: 1 };
+      return { ...state, role_selected: action.current_role,pageNumber: 1 };
     case "on_select_statusFilter":
-      return { ...state, status_selected: action.current_status, filter_selected: true,pageNumber: 1 }
+      return { ...state, status_selected: action.current_status,pageNumber: 1 }
     default:
       throw Error("Unknown action received");
   }
@@ -63,22 +60,9 @@ const ManageUser = () => {
 
   }
 
-  useEffect(() => { fetchDetailsOnNavigation(state.pageNumber) }, [state.pageNumber])
+  useEffect(() => { fetchDetailsOnNavigation(state.pageNumber,state.role_selected,state.searched_name,state.sort_order,state.status_selected) }, [state.pageNumber,state.role_selected,state.searched_name,state.sort_order,state.status_selected])
 
-  const fetchDeatilsOnFilterSelection=async()=>{
-    try{
-       const response = await fetchUserDetailsOnEvent(state.pageNumber,state.role_selected,state.searched_name,state.sort_order,state.status_selected);
-       dispatch({ type: "on_option_selection", data_received: response })
-      console.log(response)
-
-    }
-    catch(error:any){
-      console.log(error);
-
-    }
-   
-  }
-  useEffect(() => { if(state.filter_selected===false) return ; fetchDeatilsOnFilterSelection() }, [state.pageNumber,state.role_selected,state.searched_name,state.sort_order,state.status_selected])
+  
 
 
 

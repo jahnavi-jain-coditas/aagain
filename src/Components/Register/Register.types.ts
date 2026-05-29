@@ -7,6 +7,5 @@ export interface RegisterProps {
   user_confirm_password: string
   user_degree: string,
   user_certificate:FileList;
-  user_passing_year: number,
 }
 

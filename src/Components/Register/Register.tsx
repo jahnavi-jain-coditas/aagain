@@ -16,10 +16,11 @@ const Register = () => {
   // const password = watch("user_password");
 
   const onSubmit = async (data: RegisterProps) => {
-    if(data.user_password !== data.user_confirm_password){
+
+    if (data.user_password !== data.user_confirm_password) {
       throw new Error("Your confirm password and password does not match ")
     }
-    const certificateFile= data.user_certificate[0];
+    const certificateFile = data.user_certificate[0];
 
     try {
       const response = await registerUser(
@@ -30,19 +31,13 @@ const Register = () => {
         data.user_password,
         data.user_confirm_password,
         data.user_degree,
-        certificateFile,
-        data.user_passing_year,
+        certificateFile
       )
       console.log(response);
-      
     }
     catch (error: any) {
-    
       console.log(error);
-
     }
-
-
   }
 
   return (
@@ -57,8 +52,8 @@ const Register = () => {
           <div className={styles.registerCredential}>
 
             <div className={styles.basicDetails}>
-              <div>
 
+              <div>
                 <select {...register("user_title")} required>
                   <option value="" disabled > -- select an option -- </option>
                   <option value="Mr">Mr</option>
@@ -68,27 +63,21 @@ const Register = () => {
                 </select>
 
               </div>
+
               <div>
-                
                 <input type="text" placeholder="Enter Degree name" id="userDegree" {...register("user_degree")} required />
               </div>
 
             </div>
 
-
-
-
-
-
             <div>
-              
               <div>
                 <input type="text" placeholder="Enter First Name" id="userFirstName"{...register("user_first_name")} required />
               </div>
             </div>
 
+
             <div>
-              
               <div>
                 <input type="text" placeholder="Enter Last Name" id="userLastName" {...register("user_last_name")} required />
               </div>
@@ -96,15 +85,14 @@ const Register = () => {
 
 
             <div>
-              
               <div>
                 <input type="email" placeholder="Enter Email" id="userEmail" {...register("user_email", {
 
-                pattern: {
-                  value: /^[a-z0-9]+@[a-z0-9 ]+\.[a-z]{2,}$/,
-                  message: "Email is not valid."
-                }
-              })} required />
+                  pattern: {
+                    value: /^[a-z0-9]+@[a-z0-9 ]+\.[a-z]{2,}$/,
+                    message: "Email is not valid."
+                  }
+                })} required />
 
               </div>
             </div>
@@ -112,21 +100,20 @@ const Register = () => {
 
 
             <div>
-              
               <div>
-                 <input type="password" placeholder ="Enter password" id="userPassword" {...register("user_password", {
+                <input type="password" placeholder="Enter password" id="userPassword" {...register("user_password", {
 
-                minLength: {
-                  value: 8,
-                  message: "Password should be at least 8 characters."
-                },
-                maxLength: {
-                  value: 12,
-                  message: "Password should be at max 12 characters."
+                  minLength: {
+                    value: 8,
+                    message: "Password should be at least 8 characters."
+                  },
+                  maxLength: {
+                    value: 12,
+                    message: "Password should be at max 12 characters."
 
-                }
+                  }
 
-              })} required />
+                })} required />
 
               </div>
             </div>
@@ -136,81 +123,54 @@ const Register = () => {
 
 
             <div>
-             
               <div>
-                 <input type="password" placeholder="confirm your password" id="userPassword" {...register("user_confirm_password", {
+                <input type="password" placeholder="confirm your password" id="userPassword" {...register("user_confirm_password", {
 
-                minLength: {
-                  value: 8,
-                  message: "Again type the Password and it  should be at least 8 characters."
-                },
-                maxLength: {
-                  value: 12,
-                  message: "Again type the Password and it should be at max 12 characters."
+                  minLength: {
+                    value: 8,
+                    message: "Again type the Password and it  should be at least 8 characters."
+                  },
+                  maxLength: {
+                    value: 12,
+                    message: "Again type the Password and it should be at max 12 characters."
 
-                },
-                required: "rewriting the same password is required",
-                // validate: (value) => value === password || "It should be same as the one you types in the password field"
+                  },
+                  required: "rewriting the same password is required",
+                  // validate: (value) => value === password || "It should be same as the one you types in the password field"
 
-              })} required />
+                })} required />
 
               </div>
-
-           
             </div>
 
             {errors.user_confirm_password && (
-              <p className={styles.errorMsg}>{errors.user_confirm_password.message}</p>)}
+            <p className={styles.errorMsg}>{errors.user_confirm_password.message}</p>)}
 
-            <div>
-              
-              <div>
-                
-              <input type="number" placeholder="Enter Passout year" id="userPassoutYear" {...register("user_passing_year", {
-                pattern: {
-                  value: /^[0-9]{4}$/,
-                  message: "it should be a 4 digit number"
-                }
-              })} required />
 
-              </div>
-              
-            </div>
-
-            {errors.user_passing_year && (
-              <p className={styles.errorMsg}>{errors.user_passing_year.message}</p>)}
 
 
 
 
             <div>
-              
               <div>
                 <label htmlFor="userCertificate">Certificate:</label>
                 <input type="file" placeholder="Certificate Available?" id="userCertificate"  {...register("user_certificate")} required />
-                
+
 
               </div>
             </div>
-             {errors.user_certificate && (
+            {errors.user_certificate && (
               <p className={styles.errorMsg}>{errors.user_certificate.message}</p>)}
 
-            
+
             <Button className={styles.registerButton} type="submit" >Register</Button>
-           
+
 
 
             <div>
               <span>Already Have an Account??</span>
               <span><Link to="/Login">Login Here</Link></span>
             </div>
-
-
-
-
-
-
-
 
 
           </div>

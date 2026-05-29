@@ -175,8 +175,8 @@ const ManageExamsPage = () => {
                 <label htmlFor="examType">Type:</label>
                 <select id="examType"  {...register("slot_type")} required>
                   <option value="" disabled > -- select an option -- </option>
-                  <option value="ASSESMENT">Assessment</option>
-                  <option value="REASSESMENT">Reassessment</option>
+                  <option value="ASSESSMENT">ASSESSMENT</option>
+                  <option value="REASSESSMENT">REASSESSMENT</option>
                 </select>
 
               </div>

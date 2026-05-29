@@ -36,7 +36,7 @@ export default function Login() {
       localStorage.setItem('refreshToken',refresh_token)
 
 
-      if (response.user_role === "USER") {
+      if (response.user_role === "USER" ||response.user_role==="CANDIDATE") {
         navigate("/UserDashboard");
       }
       else if (response.user_role === "ADMIN" || response.user_role === "SUPERADMIN") {
